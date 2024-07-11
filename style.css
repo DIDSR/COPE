@@ -1,3 +1,21 @@
+.instructions:hover {
+  background-color: #4f90df;
+}
+
+body {
+  margin: 0;
+  background-color: rgb(26, 26, 26);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+a {
+  color: #4f90df;
+}
+
+a:visited {
+  color: #4f90df
+}
+
 body {
   margin:0;
   background-color: rgb(26, 26, 26);
@@ -135,4 +153,39 @@ h1{
 
 #noise-params{
   display:none;
+}
+
+
+#menu li a:hover {
+  background-color: #3b75ba !important;
+}
+
+#menu li a .title {
+  display: block;
+  clear: both;
+  font-size: 200%;
+  font-weight: bold;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #3b75ba;
+}
+
+#authors {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  color: white;
+}
+
+#menu li a.instructions {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  border: #3b75ba 2px solid;
+  width: 40px;
+  height: 40px;
+  border-radius: 42px;
+  background-color: #555;
+  font-size: 200%;
+  line-height: 40px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif
 }
