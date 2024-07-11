@@ -6,9 +6,9 @@ In the experiment, the location, dimension, and spatial frequency range of the G
 
 Overall, the tool consists of a user interface built using A-Frame, Three.js, and WebXR for the easy creation of image quality test patterns. It is housed on a website that can be accessed on any WebXR-compatible device with internet access. Results of the tool will be downloaded as a JSON file at the end of the experiement. This feature enables users to easily test and save results.
 
-The tool is available here: [Contrast Sensitivity Dectection Tool](https://khushibhansali.github.io/WebXR-contrast-sensitivity-tool/tool/)
+The tool is available here: [Contrast Sensitivity Detection Tool](https://khushibhansali.github.io/WebXR-contrast-sensitivity-tool/tool/)
 
-Documentation for the tool is available here: [Contrast Sensitivity Dectection Tool](https://khushibhansali.github.io/WebXR-contrast-sensitivity-tool/tool/)
+Documentation for the tool is available here: [Documentation](https://khushibhansali.github.io/WebXR-contrast-sensitivity-tool/documentation/)
 
 
 ## Contrast Sensitivity Dectection Tool
