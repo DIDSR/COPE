@@ -20,5 +20,5 @@ Documentation for the tool is available here: [Contrast Sensitivity Dectection T
 2. Download the repositiory as a zip file or use the command line, navigate to destination folder (cd command), and type ```git clone https://github.com/Khushibhansali/WebXR-tools.git```
 3. Open the index.html to modify the contents of the webpage. 
 4. Open scripts.js to change any logic from the experiments.
-5. 
+
 Note: The lib folder is nessecary for Aframe dependencies.
