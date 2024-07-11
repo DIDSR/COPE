@@ -1,0 +1,60 @@
+div.main-body {
+	display: grid;
+	grid-template-columns: minmax(300px, auto)1fr;
+	grid-template-areas: "navbar mainContent";
+	grid-gap: 20px;
+}
+
+h1{
+	color: #4f90df;
+	text-align: center;
+}
+
+nav#navbar a {
+	display: block;
+	color: black;
+	padding: 16px;
+	text-decoration: none;
+  }
+  
+nav#navbar a.active {
+	background-color: #04AA6D;
+	color: white;
+  }
+  
+  nav#navbar a:hover:not(.active) {
+	background-color: #555;
+	color: white;
+  }
+  
+nav#navbar {
+	grid-area: navbar;
+	position: fixed;
+	color: #4f90df;
+	background-color: white;
+	font-size: 1.5em;
+	height: 100%;
+	width: 230px;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	overflow-x: hidden;
+	padding-top: 20px;
+}
+
+
+main#main-doc {
+	grid-area: mainContent;
+}
+
+header {
+	font-size: 1.5rem;
+	font-weight: bold;
+	padding-top: 10px;
+}
+
+code {
+	background-color: #848884;
+	display: block;
+};
