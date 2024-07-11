@@ -40,15 +40,15 @@
         <h3>Contrast Sensitivity Experiment</h3>
         <p>Participant ID: <input type="text" class="input" id="participant-id">
         </p>
-        <p>Size (std in meters): <input type="number" class="input" id="size-std" value="1.2">
+        <p>Size (std in meters): <input type="text" class="input" id="size-std" value="1.2">
         </p>
-        <p>Min Frequency (cycles per degree): <input type="number" class="input" id="frequency" value = "0.5">
+        <p>Min Frequency (cycles per degree): <input type="text" class="input" id="frequency" value = "0.5">
         </p>
-        <p>Max Frequency (cycles per degree): <input type="number" class="input" id="max-frequency" value="5.0">
+        <p>Max Frequency (cycles per degree): <input type="text" class="input" id="max-frequency" value="5.0">
         </p>
-        <p>Step Frequency (cycles per degree):  <input type="number" class="input" id="step-frequency" value="1.5">
+        <p>Step Frequency (cycles per degree):  <input type="text" class="input" id="step-frequency" value="1.5">
         </p> 
-        <p>Shift (meters): <input type="number" class="input" id="distance" value = "25">
+        <p>Shift (meters): <input type="text" class="input" id="distance" value = "25">
         </p>
         <p>9 positions: <input type="checkbox" class="input" id="fixed-position">
         </p>
@@ -65,29 +65,61 @@
 </body>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-  // Get the input elements
-  var gaussianSigma = document.getElementById('gaussian-sigma');
+ <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    // Get the input elements
+    var frequencyInput = document.getElementById("frequency");
+    var maxFrequencyInput = document.getElementById("max-frequency");
+    var stepFrequencyInput = document.getElementById("step-frequency");
+    var gaussianSigma = document.getElementById('gaussian-sigma');
 
-  gaussianSigma.addEventListener("input", function() {
-      validateSigma(gaussianSigma);
-  });
+    // Add event listeners for input validation
+    frequencyInput.addEventListener("input", function() {
+        validateInput(frequencyInput);
+    });
 
-  function validateSigma(sigma) {
-    var inputValue = parseFloat(sigma.value);
+    maxFrequencyInput.addEventListener("input", function() {
+        validateInput(maxFrequencyInput);
+    });
 
-    if (inputValue < 0) {
-      sigma.value = 0;
+    stepFrequencyInput.addEventListener("input", function() {
+        validateInput(stepFrequencyInput);
+    });
+
+    gaussianSigma.addEventListener("input", function() {
+        validateSigma(gaussianSigma);
+    });
+  
+  
+    // Function to validate input
+    function validateInput(inputElement) {
+      var inputValue = parseFloat(inputElement.value);
+  
+      // Check if the input is less than 0
+      if (inputValue < 0.5) {
+        inputElement.value = 0;
+      }
+  
+      // Check if the input is greater than 6
+      if (inputValue > 6) {
+        inputElement.value = 6;
+      }
     }
 
-    // Check if the input is greater than 9
-    if (inputValue > 9) {
-      sigma.value = 9;
+    function validateSigma(sigma) {
+      var inputValue = parseFloat(sigma.value);
+
+      if (inputValue < 0) {
+        sigma.value = 0;
+      }
+  
+      // Check if the input is greater than 9
+      if (inputValue > 9) {
+        sigma.value = 9;
+      }
     }
-  }
-  });
-</script>
+    });
+  </script>
+  
 
-
-</html>
 </html>
