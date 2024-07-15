@@ -49,7 +49,7 @@
 				<ul>
 					<li>Partcipant ID: </b>A unique identifier of choice for the experiment trial.</li>
 					<li>Size: </b>The size of the gabor patch in pixels. Users can adjust it in meters based on the WebXR documentation.</li>
-					<li>Min Frequency: Spatial frequency of the patch when the experiment begins. Max value is 0.5. </b></li>
+					<li>Min Frequency: Spatial frequency of the patch when the experiment begins. Min value is 0.5. </b></li>
 					<li>Max Frequency: Spatial frequency of the patch when the experiment ends. Max value is 6 due to headset antialiasing. </b></li>
 					<li>Step Frequency: Spatial frequency to increment the patch by. Value must be between min and max frequency. </b></li>
 					<li>Shift: The distance between targets in terms of meters based on the WebXR documentation. </b></li>
@@ -67,11 +67,12 @@
 				<header class="line">
 					Controller Or Keyboard Setup
 				</header>
+				<img src="../Image/controller.png" width="200px" height="50%" style="padding-left: 35%;"/>
 				<ul>
 					<li>a: Confirm contrast level and move to next target</li>
 					<li>b: To reset contrast of gabor to 1 when user can't visibly see the target</li>
-					<li>Arrow up: Increase contrast of current target</li>
-					<li>Arrow down: Decrease contrast of current target</li>
+					<li>Arrow/thumbstick up: Increase contrast of current target</li>
+					<li>Arrow/thumbstick down: Decrease contrast of current target</li>
 					<li>esc: Exit immersive mode</li>
 				</ul>
 				</p>
@@ -81,8 +82,12 @@
 				<header class="line">
 					Results Json File Explaination
 				</header>
+				<img src="../Image/results.png" width="200px" height="50%" style="padding-left: 35%;"/>
 				<p>
-					TBD.
+					The json file compiles the results of the experiment. The json file has the following format where the participant id 
+					is noted above and for each frequency, the threshold contrast, the frequency, the max frequency, the size standard deviation,
+					the position of the target, and the trial time needed to complete the trial are noted. 
+				
 				</p>
 			</section>
 		</main>
