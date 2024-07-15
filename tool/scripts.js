@@ -491,7 +491,7 @@ async function newTrial(response) {
     if ($("#fixed-position").prop("checked")){
         document.getElementById("bottom-text").setAttribute("text", "value", "\n\n" + (responses.length) + "/" + num_trials);
     }else{
-        document.getElementById("bottom-text").setAttribute("text", "value", "\n\n" + (responses.length) + "/" + num_trials);
+        document.getElementById("bottom-text").setAttribute("text", "value", "\n\n" + (responses.length + 1) + "/" + num_trials);
     }
 
     document.getElementById("bottom-text").setAttribute("position", "0 0 -49");
@@ -570,10 +570,6 @@ async function newTrial(response) {
                     Math.random() * positionVariation - positionVariation / 2, 
                     -150];
                 document.getElementById("gabor-vr").setAttribute("position", position.join(" "));
-                
-                /*if building the proportion correct study uncomment this
-                Array.from(document.getElementsByClassName("cue")).forEach(function (e) { e.setAttribute("material", "opacity", "0") });
-                */
                 
                 var index = 0;
                 cuePosition=[[position[0], position[1]-7, position[2]], [position[0], position[1]+7, position[2]], [position[0]-7, position[1], position[2]], [position[0]+7, position[1], position[2]]];

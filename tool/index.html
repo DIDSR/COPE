@@ -65,13 +65,12 @@
 </body>
 
 <script>
- <script>
     document.addEventListener("DOMContentLoaded", function() {
     // Get the input elements
-    var frequencyInput = document.getElementById("#frequency");
-    var maxFrequencyInput = document.getElementById("#max-frequency");
-    var stepFrequencyInput = document.getElementById("#step-frequency");
-    var gaussianSigma = document.getElementById("#gaussian-sigma");
+    var frequencyInput = document.getElementById("frequency");
+    var maxFrequencyInput = document.getElementById("max-frequency");
+    var stepFrequencyInput = document.getElementById("step-frequency");
+    var gaussianSigma = document.getElementById("gaussian-sigma");
 
     // Add event listeners for input validation
     frequencyInput.addEventListener("input", function() {
@@ -97,7 +96,7 @@
   
       // Check if the input is less than 0
       if (inputValue < 0.5) {
-        inputElement.value = 0;
+        inputElement.value = 0.5;
       }
   
       // Check if the input is greater than 6
