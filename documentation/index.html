@@ -38,8 +38,8 @@
 
 			<section id="Setup">
 				<h2>Setup</h2>
-				<p> This expereiment is comptabile for Oculus Quest 2 or 3 devices. You can modify any of the values in the menu using a bluetooth keyboard or controller. The experiement is designed in WebXR and can be access from the Browser app of the Quest 2 or 3. 
-					The experiement will run from the min frequency to max frequency over a fixed position in the center of FOV or 9 different positions across FOV. When the experiement is set to run over 9 locations, the first trial is a test trial and will be recorded in the results file. You may choose to ignore that during final evalution. If you choose to only run the experiement in the center of the HMD FOV, each trial counts as one trial.
+				<p> This experiment is comptabile for Oculus Quest 2 or 3 devices. You can modify any of the values in the menu using a bluetooth keyboard or controller. The experiment is designed in WebXR and can be access from the Browser app of the Quest 2 or 3. 
+					The experiment will run from the min frequency to max frequency over a fixed position in the center of FOV or 9 different positions across FOV. When the experiment is set to run over 9 locations, the first trial is a test trial and will be recorded in the results file. You may choose to ignore that during final evalution. If you choose to only run the experiment in the center of the HMD FOV, each trial counts as one trial.
 					The min frequency, max frequency and step frequency are measured in cycles per degree meaning that we divide these values by 26 in our code in order to account for the angle between the headset and the target. The total number of trials is inclusive of the max frequency. 
 					Size is the standard deviation of the gaussian distribution of the target measured in meters according to the WebXR documentation. The shift is the distance between targets when they move over 9 positions which is measured in meters according to the WebXR documentation. The background noise checkbox opens the noise and gaussian sigma menu which allows the user to adjust the noise and standard deviation in grey levels.
 					Below is detailed information on the units associated with each value in the menu.</p>
@@ -51,7 +51,7 @@
 				</h2>
 				
 				<ul>
-					<li><strong>Partcipant ID: </strong>A unique identifier of choice for the experiment trial.</li>
+					<li><strong>Partcipant ID: </strong>A unique identifier of choice for the  trial.</li>
 					<li><strong>Size: </strong>The size of the gabor patch in pixels. Users can adjust it in meters based on the WebXR documentation.</li>
 					<li><strong>Min Frequency: </strong>Spatial frequency of the patch when the experiment begins. Min value is 0.5. </b></li>
 					<li><strong>Max Frequency: </strong>Spatial frequency of the patch when the experiment ends. Max value is 6 due to headset antialiasing. </b></li>
