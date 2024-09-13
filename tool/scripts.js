@@ -31,10 +31,10 @@ var Imax = 132;
 var Imin = 122;
 var frequency = 0;
 var location_adjusted = false;
-var frequency = 0.02;
+var frequency = 0.5;
 var std = 12;
-var max_freq = 0.03;
-var step_freq= 0.05;
+var max_freq = 5.0;
+var step_freq= 1.5;
 
 /*Registers controller button pressed */
 AFRAME.registerComponent('button-listener', {
