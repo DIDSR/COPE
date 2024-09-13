@@ -112,23 +112,24 @@
 		<li><strong>Visualization:</strong> It generates a set of plots (up to 9) showing the Contrast Sensitivity Function (CSF) for different positions in the visual field.</li>
 	    </ul>
 
-		<h3>To use this code effectively:</h3>
-    <ol>
-        <li><strong>Prepare Your Data:</strong> Ensure your JSON files follow the structure shown above.</li>
-        <li><strong>Set the Folder Path:</strong> Replace the <code>folder_path</code> variable with the path to your folder containing the JSON files from your experiments.</li>
-        <pre><code>folder_path = '/path/to/your/folder'</code></pre>
-        <li><strong>Run the Script:</strong> Execute the script after setting the correct folder path.</li>
-        <li><strong>Interpret the Results:</strong> The script will generate a figure with up to 9 subplots, each representing a different position in the visual field. These plots show how contrast sensitivity changes with spatial frequency for each position.</li>
-    </ol>
-
-    <h3>What the Plots Show</h3>
-    <ul>
-        <li><strong>X-axis:</strong> Spatial Frequency (cycles/degree) - derived from the "frequency" field in each response</li>
-        <li><strong>Y-axis:</strong> Contrast Sensitivity Function (CSF) on a logarithmic scale - calculated as 1/contrast</li>
-        <li>Each plot represents a different position in the visual field, based on the "position" array in each response</li>
-        <li>The line in each plot shows the average contrast sensitivity across all processed files for that position</li>
-        <li>Error bars (if included) represent standard error or standard deviation across multiple trials or participants</li>
-    </ul>
+	<h3>To use this code effectively:</h3>
+	    <ol>
+	        <li><strong>Prepare Your Data:</strong> Ensure your JSON files follow the structure shown above.</li>
+	        <li><strong>Set the Folder Path:</strong> Replace the <code>folder_path</code> variable with the path to your folder containing the JSON files from your experiments.</li>
+	        <pre><code>folder_path = '/path/to/your/folder'</code></pre>
+	        <li><strong>Run the Script:</strong> Execute the script after setting the correct folder path.</li>
+	        <li><strong>Interpret the Results:</strong> The script will generate a figure with up to 9 subplots, each representing a different position in the visual field. These plots show how contrast sensitivity changes with spatial frequency for each position.</li>
+	    </ol>
+	
+		<br/><br/><br/>
+	    <h3>What the Plots Show</h3>
+	    <ul>
+	        <li><strong>X-axis:</strong> Spatial Frequency (cycles/degree) - derived from the "frequency" field in each response</li>
+	        <li><strong>Y-axis:</strong> Contrast Sensitivity Function (CSF) on a logarithmic scale - calculated as 1/contrast</li>
+	        <li>Each plot represents a different position in the visual field, based on the "position" array in each response</li>
+	        <li>The line in each plot shows the average contrast sensitivity across all processed files for that position</li>
+	        <li>Error bars (if included) represent standard error or standard deviation across multiple trials or participants</li>
+	    </ul>
 
 		
 		</div>
