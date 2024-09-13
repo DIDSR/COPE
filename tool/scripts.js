@@ -174,7 +174,7 @@ $(document).ready(function () {
     });
 
     /* If target st dev changed, we update the angle of the target based on current location 
-    and type of experiment (9 loc, random loc, or static loc). We also
+    and type of experiment (9 loc or static loc). We also
     convert new st dev value to units we want and redraw target gabor */
     $("#size-std").keyup(function () {
         if ($("#fixed-position").prop("checked")) {
@@ -188,7 +188,7 @@ $(document).ready(function () {
     });
 
 /* If frequency changed, we update the angle of the target based on current location 
-    and type of experiment (9 loc, random loc, or static loc). We also
+    and type of experiment (9 loc  or static loc). We also
     convert new frequency value to units we want, recalculate total trials, and redraw target gabor */
     $("#frequency").change(function () {
         if ($("#fixed-position").prop("checked")) {
@@ -232,10 +232,6 @@ $(document).ready(function () {
         trial_num();
      });
     
-     $("#random-location").change(function () {
-        trial_num();
-     });   
-
     $("#background-noise").change(function () {
         showNoise();
         if ($("#background-noise").prop("checked"))
@@ -426,7 +422,7 @@ function gauss_internal(pixels, kernel, ch, gray) {
 function trial_num(){
     if ($("#fixed-position").prop("checked")) {
         num_trials = Math.floor((max_freq-frequency+step_freq)/step_freq) * loc.length;
-    }else if(!$("#fixed-position").prop("checked") && !$("#random-location").prop("checked")){
+    }else if(!$("#fixed-position").prop("checked")){
         num_trials = Math.floor((max_freq-frequency+step_freq)/step_freq);
     }
 
@@ -525,6 +521,7 @@ async function newTrial(response) {
                 else
                     json[$(this).attr("id")] = isNaN($(this).val()) ? $(this).val() : parseFloat($(this).val())
             });
+            json["experiment_timestamp"] = new Date().toISOString();
             json["responses"] = responses;
 
             downloadObjectAsJson(json, json["participant-id"] + "-" + Date.now());
@@ -564,22 +561,7 @@ async function newTrial(response) {
                                         });
 
             }   
-            if ($("#random-location").prop("checked")) {
-                position = [
-                    Math.random() * positionVariation - positionVariation / 2, 
-                    Math.random() * positionVariation - positionVariation / 2, 
-                    -150];
-                document.getElementById("gabor-vr").setAttribute("position", position.join(" "));
-                
-                var index = 0;
-                cuePosition=[[position[0], position[1]-7, position[2]], [position[0], position[1]+7, position[2]], [position[0]-7, position[1], position[2]], [position[0]+7, position[1], position[2]]];
-
-                Array.from(document.getElementsByClassName("cue")).forEach(function (e) { 
-                    e.setAttribute("material", "opacity", "1");
-                    e.setAttribute("position", cuePosition[index].join(" "));
-                    index+=1;
-                });
-            }
+           
             else {
                 Array.from(document.getElementsByClassName("cue")).forEach(function (e) { e.setAttribute("material", "opacity", "1") });
             }
@@ -600,8 +582,8 @@ async function newTrial(response) {
         frequency += step_freq;
     }
 
-    // if experiment is random location or static location, we update frequency with every trial
-    if (responses.length >= 1 && !$("#fixed-position").prop("checked") && !$("#random-position").prop("checked")){
+    // if experiment is static location, we update frequency with every trial
+    if (responses.length >= 1 && !$("#fixed-position").prop("checked")){
         frequency += step_freq;
     }
 
