@@ -521,7 +521,7 @@ async function newTrial(response) {
                 else
                     json[$(this).attr("id")] = isNaN($(this).val()) ? $(this).val() : parseFloat($(this).val())
             });
-            json["experiment_timestamp"] = new Date().toISOString();
+            json["timestamp"] = new Date().toString();
             json["responses"] = responses;
 
             downloadObjectAsJson(json, json["participant-id"] + "-" + Date.now());
