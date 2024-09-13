@@ -101,14 +101,40 @@
 			</section>
 
 			<section id="DataProcessing" class="image-text-section">
-				<h2>Data Processesing</h2>
-				<div class="content-wrapper">
-					<div class="text-content">
-				                <a href="https://webxr-tool.streamlit.app"> Upload your results from this experiment to this link to plot results and view standard deviation and standard error. </a>
-				            </p>
-				        </div>
-				</div>
-			</section>
+    <h2>Data Processing</h2>
+    <div class="content-wrapper">
+        <div class="text-content">
+            <h3>Purpose of the Code</h3>
+            <p>This code is designed to analyze and visualize contrast sensitivity data from multiple experiments. Its main functions are:</p>
+            <ul>
+                <li><strong>Data Processing:</strong> It processes multiple JSON files containing experimental results on contrast sensitivity.</li>
+                <li><strong>Data Aggregation:</strong> The code combines data from all input files and calculates average contrast sensitivity for each spatial frequency and position combination.</li>
+                <li><strong>Visualization:</strong> It generates a set of plots (up to 9) showing the Contrast Sensitivity Function (CSF) for different positions in the visual field.</li>
+            </ul>
+
+            <h3>How to Use</h3>
+            <p>To use this code effectively:</p>
+            <ol>
+                <li><strong>Set the Folder Path:</strong> Replace the <code>folder_path</code> variable with the path to your folder containing the JSON files from your experiments.</li>
+                <pre><code>folder_path = '/path/to/your/folder'</code></pre>
+                <li><strong>Run the Script:</strong> Execute the script after setting the correct folder path.</li>
+                <li><strong>Interpret the Results:</strong> The script will generate a figure with up to 9 subplots, each representing a different position in the visual field. These plots show how contrast sensitivity changes with spatial frequency for each position.</li>
+            </ol>
+
+            <h3>What the Plots Show</h3>
+            <ul>
+                <li><strong>X-axis:</strong> Spatial Frequency (cycles/degree)</li>
+                <li><strong>Y-axis:</strong> Contrast Sensitivity Function (CSF) on a logarithmic scale</li>
+                <li>Each plot represents a different position in the visual field</li>
+                <li>The line in each plot shows the average contrast sensitivity across all processed files for that position</li>
+            </ul>
+
+            <p>This tool is valuable for researchers and clinicians studying visual perception, as it provides a comprehensive view of how contrast sensitivity varies across different spatial frequencies and positions in the visual field, aggregated from multiple experimental results.</p>
+
+            <p>You can find the Python code to plot these results <a href="https://github.com/Khushibhansali/WebXR-contrast-sensitivity-tool/blob/main/documentation/resultplotter.py">here</a>.</p>
+        </div>
+    </div>
+</section>
 		</main>
 	</div>
 </body>
