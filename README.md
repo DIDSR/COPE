@@ -1,4 +1,4 @@
-# WebXR-contrast-sensitivity-tool
+# WebXR contrast sensitivity tool
 We have developed a contrast sensitivity tool to evaluate the image quality of head-mounted displays (HMDs). In general, image quality on virtual and augmented reality (VR and AR) HMDs is subject to limited image resolution, contrast degradation, nonuniformity, among other image artifacts depending on the display and optics technologies. In addition, most HMDs present stereo image pairs and the image quality experienced by the user is dependent on the fusion of binocular images. Unfortunately, image quality on HMDs varies spatially between two eyepieces and therefore requires binocular image quality evaluation methods. 
 
 This contrast sensitivity tool can be used to evaluate binocular (and/or monocular) image quality in support of performance testing on medical extended reality (MXR) devices using VR or AR technologies. In addition to performing optical bench testing to evaluate the image quality, this regulatory science tool provides a simple workflow to quantify perceptual contrast and effective resolution of HMDs using human perceptual experiments. Specifically, the threshold (minimum) visible contrast of a human participant, is measured using a 2D sinusoidal pattern with predefined contrast and spatial frequency, known as a Gabor target, rendered at a single or multiple locations across the HMD field of view (FOV). The experimental results are summarized as the contrast sensitivity response (CSR) at each measured position that is a combination of HMD modulation transfer function (MTF) and human contrast sensitivity capability. 
@@ -12,7 +12,7 @@ The tool is available here: [Contrast Sensitivity Detection Tool](https://khushi
 Documentation for the tool is available here: [Documentation](https://khushibhansali.github.io/WebXR-contrast-sensitivity-tool/documentation/)
 
 
-## Contrast Sensitivity Dectection Tool
+## User interface
 
 ![plot](Image/exp1.PNG)
 
@@ -22,7 +22,7 @@ Documentation for the tool is available here: [Documentation](https://khushibhan
 
 Note: The lib folder is nessecary for Aframe dependencies.
 
-## Comments and Limitations
+## Comments and limitations
 1. This tool requires to access a WebXR-compatible browser on the evaluated HMD. Compatbility of the HMD needs to be validated before the experiment. 
 2. The rendered image resolution is dependent on the WebXR rendering engine. Spatial frequencies beyound 6 cycles per degree may be subject to anti-aliasing effect and therefore performing contrast sensitivity experiments beyound spatial frequency of 6 cycles per degree is not recommended. 
 
