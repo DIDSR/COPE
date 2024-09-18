@@ -30,17 +30,22 @@
             <section id="Intro">
 				<h2><a href="../tool/index.html"><img src="Images/link-icon.png" alt="Link Icon" width="15px" height="15px"/></a>
 					Introduction</h2> 
-                <p>
-					The contrast sensitivity tool evaluates the monocular and/or binocular contrast perception on head-mounted display (HMD).  This experiment is compatible for Oculus Quest 2 or 3 devices. Contrast sensitivity response (CSR), as the reciprocol of the threshold (minimum) contrast of the human participant, is measured at various spatial frequencies. This is achieved using a 2D sinusoidal pattern with predefined contrast and spatial frequency, known as a Gabor target. The Gabor target can be rendered at a single or multiple locations across the display field of view (FOV). The tool ensures that the sinusoidal contrast pattern remains circular (or perpendicular to the radial direction) relative to the target location, as this orientation effectively captures contrast degradation caused by optical aberrations.
+                		<p> The contrast sensitivity tool evaluates the monocular and/or binocular contrast perception on head-mounted display (HMD).  
+					Contrast sensitivity response (CSR), as the reciprocol of the threshold (minimum) contrast of the human participant, is measured at various spatial frequencies. 
+					This is achieved using a 2D sinusoidal pattern with predefined contrast and spatial frequency, known as a Gabor target. 
+					The Gabor target can be rendered at a single or multiple locations across the display field of view (FOV). 
+					The tool ensures that the sinusoidal contrast pattern remains circular (or perpendicular to the radial direction) relative to the target location, as this orientation effectively captures contrast degradation caused by optical aberrations.
 					<br/><br/>
-					In the experiment, the location, size, spatial frequency range, and background noise of the Gabor target can be adjusted during initial setup. The depth of the target is fixed at a long distance of 150 m. During the perceptual experiments, the target's contrast can be incremented or decremented by adjusting the display gray level using a headset controller or Bluetooth keyboard until reaching the threshold contrast of each trial. At the end of the experiment, all trial data is saved as a JSON file. Statistical analysis of the results measured on mulitple human participants is applied to obtain the CSR of users within a group (e.g., similar interpuillary distance settings, age, or visual acuity etc).
+					In the experiment, the location, size, spatial frequency range, and background noise of the Gabor target can be adjusted during initial setup. 
+					The depth of the target is fixed at a long distance of 150 m. During the perceptual experiments, the target's contrast can be incremented or decremented by adjusting the display gray level using a headset controller or Bluetooth keyboard until reaching the threshold contrast of each trial. 
+					At the end of the experiment, all trial data is saved as a JSON file. Statistical analysis of the results measured on mulitple human participants is applied to obtain the CSR of users within a group (e.g., similar interpuillary distance settings, age, or visual acuity etc).
 					</p>
 			</section>
 
 			<section id="Setup">
 				<h2>Setup</h2>
-				<p> This experiment is compatible for Oculus Quest 2 or 3 devices. You can modify any of the values in the menu using a bluetooth keyboard or controller. The experiment is designed in WebXR and can be access from the Browser app of the Quest 2 or 3. 
-					The experiment will run from the min frequency to max frequency over a fixed position in the center of FOV or 9 different positions across FOV. When the experiment is set to run over 9 locations, the first trial is a test trial and will be recorded in the results file. You may choose to ignore that during final evalution. If you choose to only run the experiment in the center of the HMD FOV, each trial counts as one trial.
+				<p> Prior to the experiment, the testing conditions should be setup in the menu on the left hand side of the user interface using a bluetooth keyboard or compatible controller.
+					The experiment will run from the min frequency to max frequency over a fixed position at the center of FOV or 9 different positions across FOV. When the experiment is set to run over 9 locations, the first trial is a test trial and will be recorded in the results file. You may choose to ignore that during final evalution. If you choose to only run the experiment in the center of the HMD FOV, each trial counts as one trial.
 					The min frequency, max frequency and step frequency are measured in cycles per degree meaning that we divide these values by 26 in our code in order to account for the angle between the headset and the target. The total number of trials is inclusive of the max frequency. 
 					Size is the standard deviation of the gaussian distribution of the target measured in meters according to the WebXR documentation. The shift is the distance between targets when they move over 9 positions which is measured in meters according to the WebXR documentation. The background noise checkbox opens the noise and gaussian sigma menu which allows the user to adjust the noise and standard deviation in grey levels.
 					Below is detailed information on the units associated with each value in the menu.</p>
