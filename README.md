@@ -1,7 +1,9 @@
 # WebXR-contrast-sensitivity-tool
-The contrast sensitivity tool evaluates the monocular and/or binocular contrast perception on head-mounted display (HMD). Contrast sensitivity response (CSR), as the reciprocol of the threshold (minimum) contrast of the human participant, is measured at various spatial frequencies. This is achieved using a 2D sinusoidal pattern with predefined contrast and spatial frequency, known as a Gabor target. The Gabor target can be rendered at a single or multiple locations across the display field of view (FOV). The tool ensures that the sinusoidal contrast pattern remains circular (or perpendicular to the radial direction) relative to the target location, as this orientation effectively captures contrast degradation caused by optical aberrations.
+We have developed a contrast sensitivity tool to evaluate the image quality of head-mounted displays (HMDs). In general, image quality on virtual and augmented reality (VR and AR) HMDs is subject to limited image resolution, contrast degradation, nonuniformity, among other image artifacts depending on the display and optics technologies. In addition, most HMDs present stereo image pairs and the image quality experienced by the user is dependent on the fusion of binocular images. Unfortunately, image quality on HMDs varies spatially between two eyepieces and therefore requires binocular image quality evaluation methods. 
 
-In the experiment, the location, size, spatial frequency range, and background noise of the Gabor target can be adjusted during initial setup. The depth of the target is fixed at a long distance of 150 m. During the perceptual experiments, the target's contrast can be incremented or decremented by adjusting the display gray level using a headset controller or Bluetooth keyboard until reaching the threshold contrast of each trial. At the end of the experiment, all trial data is saved as a JSON file. Statistical analysis of the results measured on mulitple human participants is applied to obtain the CSR of users within a group (e.g., similar interpuillary distance settings, age, or visual acuity etc).
+This contrast sensitivity tool can be used to evaluate binocular (and/or monocular) image quality in support of performance testing on medical extended reality (MXR) devices using VR or AR technologies. In addition to performing optical bench testing to evaluate the image quality, this regulatory science tool provides a simple workflow to quantify perceptual contrast and effective resolution of HMDs using human perceptual experiments. Specifically, the threshold (minimum) visible contrast of a human participant, is measured using a 2D sinusoidal pattern with predefined contrast and spatial frequency, known as a Gabor target, rendered at a single or multiple locations across the HMD field of view (FOV). The experimental results are summarized as the contrast sensitivity response (CSR) at each measured position that is a combination of HMD modulation transfer function (MTF) and human contrast sensitivity capability. 
+
+In the experiment, the location, size, spatial frequency range, and background noise of the Gabor target can be adjusted during initial setup. The depth of the target is fixed at a long distance of 150 m. During the perceptual experiments, the target's contrast can be incremented or decremented by adjusting the display gray level using a headset controller or Bluetooth keyboard until reaching the threshold contrast of each trial. At the end of the experiment, all trial data is saved as a JSON file used to calculate the binocular or monocular CSR. Statistical analysis of the results measured on mulitple human participants is recommended to minimize the experimental error from individual participants.
 
 The tool features a user interface built with A-Frame, Three.js, and WebXR, facilitating the creation of image quality test patterns. It is accessible via any WebXR-compatible device with internet access, and the results are downloadable as a JSON file at the conclusion of the experiment, making it simple for users to test and save results.
 
@@ -14,10 +16,13 @@ Documentation for the tool is available here: [Documentation](https://khushibhan
 
 ![plot](Image/exp1.PNG)
 
-## Download the repositiory following these steps:
+## Download the repositiory using the following options:
 1. Click on the green code button between add file button and about section. 
-2. Download the repositiory as a zip file or use the command line, navigate to destination folder (cd command), and type ```git clone https://github.com/Khushibhansali/WebXR-tools.git```
-3. Open the index.html to modify the contents of the webpage. 
-4. Open scripts.js to change any logic from the experiments.
+2. Download the repositiory as a zip file or use the command line, navigate to destination folder (cd command), and type ```git clone https://github.com/Khushibhansali/WebXR-contrast-sensitivity-tool.git```
 
 Note: The lib folder is nessecary for Aframe dependencies.
+
+## Comments and Limitations
+1. This tool requires to access a WebXR-compatible browser on the evaluated HMD. Compatbility of the HMD needs to be validated before the experiment. 
+2. The rendered image resolution is dependent on the WebXR rendering engine. Spatial frequencies beyound 6 cycles per degree may be subject to anti-aliasing effect and therefore performing contrast sensitivity experiments beyound spatial frequency of 6 cycles per degree is not recommended. 
+
