@@ -23,7 +23,9 @@ var doubleQuit = false;
 
 var backgroundColor = "#7F7F7F";
 
-var loc = [[0,0], [-1, 1], [0, 1],[1, 1], [-1, 0], [1, 0], [-1,-1], [0, -1], [1, -1]];
+var initialLoc = [[0, 0], [-1, 1],  [0, 1], [1, 1], [-1, 0], [1, 0], [-1, -1], [0, -1], [1, -1]];
+var loc = JSON.parse(JSON.stringify(initialLoc)); 
+
 var angle_pos = [0, -45, 90, 45, 0, 0, 45, 90, -45];
 var counter = 0;
 var angle = 0;
@@ -148,26 +150,26 @@ $(document).ready(function () {
     /* Registers keyboard input a->97 (increase contrast) and b->98 (decrease contrast) */
     $(document).on('keydown keyup keypress', function (event) {
         let keycode = (event.keyCode ? event.keyCode : event.which);
-
+        let isNumpad = event.location === 3; // 3 indicates the numpad
+    
         if (acceptingResponses) {
-            if (keycode == 97) {
+            if (keycode == 97 && !isNumpad) { // Check if it's not numpad '1'
                 newTrial(true);
-            } else if (keycode == 98) {
+            } else if (keycode == 98 && !isNumpad) { // Check if it's not numpad '2'
                 Imax = 132;
                 Imin = 122;
                 var gabor = createGabor(100, frequency, angle, std, 0.5, 1);
                 $("#gabor").html(gabor);
                 rr = gabor.toDataURL("image/png").split(';base64,')[1];
                 document.getElementById("gabor-vr").setAttribute("material", "src", "url(data:image/png;base64," + rr + ")");
-            }
-            else if (keycode==38){
+            } else if (keycode == 38) { // Arrow Up
                 updateGabor(1, -1);
-            }
-            else if (keycode==40){
+            } else if (keycode == 40) { // Arrow Down
                 updateGabor(-1, 1);
             }
         }
-    });
+    });    
+
 
     $("#myEnterVRButton").click(function () {
         stimulusOn = Date.now();
@@ -215,19 +217,11 @@ $(document).ready(function () {
     });
 
     /* If distance between targets is updated, recalculate target positions */
+    /* If distance between targets is updated, recalculate target positions */
     $("#distance").change(function () {
-        distance = parseFloat($("#distance").val());
-        index = 0;
-        while (index < loc.length){
-
-            loc[index][0] *= distance;
-            loc[index][1] = loc[index][1] * distance;
-            index+=1;    
-     }
-     location_adjusted = true;
-
+        updateLocation();
     });
-
+    
      $("#fixed-position").change(function () {
         trial_num();
      });
@@ -270,14 +264,13 @@ $(document).ready(function () {
 /* Calculates new location based on distance */
 function updateLocation(){
     distance = parseFloat($("#distance").val());
-    index = 0;
-    while (index < loc.length){
-        loc[index][0] *= distance;
-        loc[index][1] = loc[index][1] * distance;
-        index+=1;    
+    for (var i = 0; i < initialLoc.length; i++) {
+        loc[i][0] = initialLoc[i][0] * distance;
+        loc[i][1] = initialLoc[i][1] * distance;
     }
     location_adjusted = true;
 }
+
 
 /* Adjusts contrast*/
 function updateGabor(max, min){
@@ -477,7 +470,7 @@ async function newTrial(response) {
     stimulusOff = Date.now();
     acceptingResponses = false;
 
-    if(location_adjusted==false){
+    if(!location_adjusted){
         updateLocation();
     }
    
