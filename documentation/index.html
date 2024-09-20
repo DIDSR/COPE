@@ -38,47 +38,49 @@
 					<br/><br/>
 					</p>
 			</section>
-
+		
+			</section id = "Experiment">
+			<h2> Experiment </h2>
+			<p> In the experiment, the location, size, spatial frequency range, and background noise of the Gabor target should be determined in the setup stage with detailed instructions below. 
+				During the perceptual experiments, the setup parameters cannot be changed. 
+				Each experiment contains multiple trails to determine the threshold contrast of the Gabor target at various spatial frequencies. In each trial, the target's contrast (starting as gray difference of 10, correponding to a contrast of about 0.04) can be incremented or decremented by adjusting the display gray level using a headset controller (thumbstick up or down) or Bluetooth keyboard (arrow up or down) until reaching the threshold contrast of each trial. 
+				Once the threshold contrast is obtained, press button "A" on the controller or keyboard to complete the current trial. For very poor image quality conditions, e.g., threshold contrast close to 1, the button "B" can be used to maximize the contrast to 1 for further adjustment. 
+				At the end of the experiment, all trial data is saved as a JSON file. Statistical analysis of the results measured on mulitple human participants is applied to obtain the CSR of a group of participants. 			
+			<\p>
+			</section>
+				
 			<section id="Setup">
 				<h2>Setup</h2>
-				<p> Prior to the experiment, the testing conditions should be setup in the menu on the left hand side of the user interface using a bluetooth keyboard or compatible controller.
-					The experiment will run from the min frequency to max frequency over a fixed position at the center of FOV or 9 different positions across FOV. When the experiment is set to run over 9 locations, the first trial is a test trial and will be recorded in the results file. You may choose to ignore that during final evalution. If you choose to only run the experiment in the center of the HMD FOV, each trial counts as one trial.
-					The min frequency, max frequency and step frequency are measured in cycles per degree meaning that we divide these values by 26 in our code in order to account for the angle between the headset and the target. The total number of trials is inclusive of the max frequency. 
-					Size is the standard deviation of the gaussian distribution of the target measured in meters according to the WebXR documentation. The shift is the distance between targets when they move over 9 positions which is measured in meters according to the WebXR documentation. The background noise checkbox opens the noise and gaussian sigma menu which allows the user to adjust the noise and standard deviation in grey levels.
+				<p> Prior to the experiment, the testing conditions should be setup in the menu on the left hand side of the user interface using a compatible HMD controller or Bluetooth keyboard.
+					The experiment will run from the minimum frequency to maximum frequency over a fixed position at the center of FOV or 9 different positions across FOV. When the experiment is set to run over 9 locations, the first trial (trial 0) is for illustration and practice, which will be excluded in the data processing. 
+					The "min frequency", "max frequency" and "step frequency" are measured in cycles per degree. 
+					"Size" is the standard deviation of the gaussian bracket of the Garbor target measured in meters that determines the target dimension. Note that the depth of the target is fixed at a long distance of 150 m. "Shift" is the shortest distance in meters between targets over 9 positions. The background noise checkbox opens the noise menu which allows the user to adjust the noise amplitude in gray levels and standard deviation of the noise kernel.
 					Below is detailed information on the units associated with each value in the menu.</p>
 			</section>
 
 			<section id="ToolMenu">
 				<h2>
-					Tool Menu Explaination
+					Tool Menu
 				</h2>
 				
 				<ul>
 					<li><strong>Partcipant ID: </strong>A unique identifier of choice for the  trial.</li>
-					<li><strong>Size: </strong>The size of the gabor patch in pixels. Users can adjust it in meters based on the WebXR documentation.</li>
+					<li><strong>Size: </strong>The size of the gabor patch in meters. </li>
 					<li><strong>Min Frequency: </strong>Spatial frequency of the patch when the experiment begins. Min value is 0.5. </b></li>
 					<li><strong>Max Frequency: </strong>Spatial frequency of the patch when the experiment ends. Max value is 6 due to headset antialiasing. </b></li>
 					<li><strong>Step Frequency: </strong>Spatial frequency to increment the patch by. Value must be between min and max frequency. </b></li>
 					<li><strong>Shift: </strong>The distance between targets in terms of meters based on the WebXR documentation. </b></li>
 					<li><strong>9 positions: </strong>Checking this box allows the experiment to loop the frequency over 9 positions accross the FOV determined by the shift. </b></li>
-					<li><strong>Background Noise: </strong>Checking this box opens the noise and gaussian sigma menu options. </b></li>
-					<li><strong>Noise Sigma: </strong>Standard deviation in gray levels (0-255)</b></li>
-					<li><strong>Gaussian Sigma: </strong> Adds the blur behind the target per location. Ranges from 0 to 9 only.  </b></li>
+					<li><strong>Background Noise: </strong>Checking this box opens the noise menu options. </b></li>
+					<li><strong>Noise Sigma: </strong>Standard deviation of the noise amplitude in gray levels (0-255)</b></li>
+					<li><strong>Gaussian Sigma: </strong> Standard deviation of the Gaussian kernel that adds noise correlation. Ranges from 0 to 9 only.  </b></li>
 
 				</ul> 
 			
 				</p>
 			</section>
 
-		</section id = "Experiment">
-			<h2> Experiment </h2>
-			<p> In the experiment, the location, size, spatial frequency range, and background noise of the Gabor target should be determined in the setup stage with detailed instructions below. 
-				The depth of the target is fixed at a long distance of 150 m. During the perceptual experiments, the setup parameters cannot be changed. 
-				The experiment contains multiple trails to determine the threshold contrast of the Gabor target at various locations and spatial frequencies. In each trial, the target's contrast (starting as gray difference of 10, correponding to a contrast of about 0.04) can be incremented or decremented by adjusting the display gray level using a headset controller (thumbstick up or down) or Bluetooth keyboard (arrow up or down) until reaching the threshold contrast of each trial. 
-				Once the threshold contrast is obtained, press button "A" on the controller or keyboard to complete the current trial. For very poor image quality conditions, e.g., threshold contrast close to 1, the button "B" can be used to maximize the contrast to 1 for further adjustment. 
-				At the end of the experiment, all trial data is saved as a JSON file. Statistical analysis of the results measured on mulitple human participants is applied to obtain the CSR of a group of participants. 			
-			<\p>
-		</section>
+
 		
 			<section id="ControllerOrKeyboardSetup" class="image-text-section">
 				<h2>HMD Controller and Keyboard Control</h2>
@@ -86,8 +88,8 @@
 					<img src="./Images/controller.png" alt="Controller setup" class="section-image" />
 					<div class="text-content">
 						<ul>
-							<li><strong>a: </strong>Confirm contrast level and move to next target</li>
-							<li><strong>b: </strong>To reset contrast of gabor to 1 when user can't visibly see the target</li>
+							<li><strong>a: </strong>Confirm threshold contrast that completes the current trial and move to the next one</li>
+							<li><strong>b: </strong>To maximize the current contrast to 1 for poor visibility trials</li>
 							<li><strong>Arrow/thumbstick up: </strong>Increase contrast of current target</li>
 							<li><strong>Arrow/thumbstick down: </strong>Decrease contrast of current target</li>
 							<li><strong>esc: </strong>Exit immersive mode</li>
