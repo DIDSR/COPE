@@ -281,12 +281,8 @@ function updateGabor(max, min){
     contrast = (Imax - Imin)/ (Imax + Imin);
 
     // if contrast goes below 1/255
-    if (contrast <= 0.039){
-     contrast = 0.039;
-    }
-
-    if (contrast >= 1) {
-        contrast = 0.1;  // Grey-level contrast set to 10%
+    if (contrast <= 0.0039){
+     contrast = 0.0039;
     }
     
     var gabor = createGabor(100, frequency, angle, std, 0.5, contrast);
@@ -533,9 +529,10 @@ async function newTrial(response) {
             if ($("#fixed-position").prop("checked")){
                 angle = angle_pos[counter];
             }
-            contrast = 0.1;
+            
             Imax = 132;
             Imin = 122;
+            contrast = (Imax - Imin)/ (Imax + Imin);
 
             gabor = createGabor(100, frequency, angle, std, 0.5, contrast);
             rr = gabor.toDataURL("image/png").split(';base64,')[1];
