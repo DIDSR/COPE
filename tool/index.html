@@ -40,7 +40,7 @@
         <h3>Contrast Sensitivity Experiment</h3>
         <p>Participant ID: <input type="text" class="input" id="participant-id">
         </p>
-        <p>Size (std in meters): <input type="text" class="input" id="size-std" value="1.2">
+        <p>Size (std in degree): <input type="text" class="input" id="size-std" value="0.45">
         </p>
         <p>Min Frequency (cycles per degree): <input type="text" class="input" id="frequency" value = "0.5">
         </p>
@@ -48,10 +48,12 @@
         </p>
         <p>Step Frequency (cycles per degree):  <input type="text" class="input" id="step-frequency" value="1.5">
         </p> 
-        <p>Shift (meters): <input type="text" class="input" id="distance" value = "25">
-        </p>
         <p>9 positions: <input type="checkbox" class="input" id="fixed-position">
         </p>
+	<div id="shift-params">
+             <p>Shift (degree): <input type="text" class="input" id="distance" value = "9.47">
+             </p>
+	</div>
         <p>Background noise: <input type="checkbox" class="input" id="background-noise">
         </p>
         <div id="noise-params">
@@ -67,12 +69,17 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
    // Get the input elements
+    var sizeInput = document.getElementById("size-std");
     var frequencyInput = document.getElementById("frequency");
     var maxFrequencyInput = document.getElementById("max-frequency");
     var stepFrequencyInput = document.getElementById("step-frequency");
     var gaussianSigma = document.getElementById("gaussian-sigma");
 
     // Add event listeners for input validation on 'blur' instead of 'input'
+    //sizeInput.addEventListener("blur", function() {
+    //    validateInput(sizeInput);
+    //});
+
     frequencyInput.addEventListener("blur", function() {
         validateInput(frequencyInput);
     });
@@ -90,8 +97,8 @@
     });
 
     // Function to validate input
-    function validateInput(inputElement) {
-        var inputValue = parseFloat(inputElement.value);
+    function validateInput(inputElement) {   
+	var inputValue = parseFloat(inputElement.value);
 
         // Check if the input is a valid number
         if (isNaN(inputValue)) {
