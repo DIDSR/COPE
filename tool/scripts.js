@@ -120,7 +120,15 @@ $(document).ready(function () {
 
     /* Adjusting the frequency, max frequency, std, and step frequency based on depth of 150m*/
     frequency = parseFloat($("#frequency").val())/26;
-    std = parseFloat($("#size-std").val())*10;
+    // Step 1: Capture the degree value from the input field (size-std)
+    var degree = parseFloat($("#size-std").val());
+
+    // Step 2: Convert degrees to radians
+    var radians = degree * (Math.PI / 180);  // Convert degree to radians
+
+    // Step 3: Calculate the corresponding distance in meters using the tan function
+    var meters = 150 * Math.tan(radians);  // Using x = 150 * tan(radians)
+    std = meters*10;
     max_freq = parseFloat($("#max-frequency").val())/26;
     step_freq= parseFloat($("#step-frequency").val())/26;
 
@@ -147,18 +155,19 @@ $(document).ready(function () {
         e.stopPropagation();
     });
 
-    /* Registers keyboard input a->97 (increase contrast) and b->98 (decrease contrast) */
+    /* Registers keyboard input a->65 (increase contrast) and b->66 (decrease contrast) */
     $(document).on('keydown keyup keypress', function (event) {
         let keycode = (event.keyCode ? event.keyCode : event.which);
         let isNumpad = event.location === 3; // 3 indicates the numpad
     
         if (acceptingResponses) {
-            if (keycode == 97 && !isNumpad) { // Check if it's not numpad '1'
+            if (keycode == 65 && !isNumpad) { // Check if it's not numpad '1'
                 newTrial(true);
-            } else if (keycode == 98 && !isNumpad) { // Check if it's not numpad '2'
+            } else if (keycode == 66 && !isNumpad) { // Check if it's not numpad '2'
                 Imax = 132;
                 Imin = 122;
                 var gabor = createGabor(100, frequency, angle, std, 0.5, 1);
+		//var gabor = updateGabor(Imax, Imin) 
                 $("#gabor").html(gabor);
                 rr = gabor.toDataURL("image/png").split(';base64,')[1];
                 document.getElementById("gabor-vr").setAttribute("material", "src", "url(data:image/png;base64," + rr + ")");
@@ -175,15 +184,19 @@ $(document).ready(function () {
         stimulusOn = Date.now();
     });
 
-    /* If target st dev changed, we update the angle of the target based on current location 
+/* If target st dev changed, we update the angle of the target based on current location 
     and type of experiment (9 loc or static loc). We also
     convert new st dev value to units we want and redraw target gabor */
-    $("#size-std").keyup(function () {
+    $("#size-std").change(function () {
         if ($("#fixed-position").prop("checked")) {
             angle = angle_pos[counter];
         }
-        std = parseFloat($("#size-std"))* 10;
-        var gabor = createGabor(100, frequency, angle,std, 0.5, 1);
+	var degree = parseFloat($("#size-std").val());
+	var radians = degree * (Math.PI / 180);  // Convert degree to radians
+	var meters = 150 * Math.tan(radians);  // Using x = 150 * tan(radians)
+        std = meters*10;
+	//trial_num();
+        var gabor = createGabor(100, frequency, angle, std, 0.5, 1);
         $("#gabor").html(gabor);
         rr = gabor.toDataURL("image/png").split(';base64,')[1];
         document.getElementById("gabor-vr").setAttribute("material", "src", "url(data:image/png;base64," + rr + ")");
@@ -196,21 +209,24 @@ $(document).ready(function () {
         if ($("#fixed-position").prop("checked")) {
             angle = angle_pos[counter];
         }
-        frequency=  parseFloat($("#frequency").val())/26;
-        trial_num();
-        var gabor = createGabor(100, frequency, angle, std, 0.5, 1);
-        $("#gabor").html(gabor);
-        rr = gabor.toDataURL("image/png").split(';base64,')[1];
-        document.getElementById("gabor-vr").setAttribute("material", "src", "url(data:image/png;base64," + rr + ")");
+	var frequencyValue = parseFloat($("#frequency").val());
+	if (!isNaN(frequencyValue) && frequencyValue >= 0.5) {
+    	    frequency = frequencyValue / 26;
+    	    trial_num();
+            var gabor = createGabor(100, frequency, angle, std, 0.5, 1);
+    	    $("#gabor").html(gabor);
+    	    rr = gabor.toDataURL("image/png").split(';base64,')[1];
+    	    document.getElementById("gabor-vr").setAttribute("material", "src", "url(data:image/png;base64," + rr + ")");
+	}
     });
 
-/* If max freq changed we recalculate total trials and convert new max frequency to units we want  */
+    /* If max freq changed we recalculate total trials and convert new max frequency to units we want  */
     $("#max-frequency").change(function () {
         max_freq= parseFloat($("#max-frequency").val())/26;
         trial_num();
     });
 
-/* If step freq changed we recalculate total trials and convert new step frequency to units we want  */
+    /* If step freq changed we recalculate total trials and convert new step frequency to units we want  */
     $("#step-frequency").change(function () {
         step_freq= parseFloat($("#step-frequency").val())/26;
         trial_num();
@@ -221,9 +237,17 @@ $(document).ready(function () {
     $("#distance").change(function () {
         updateLocation();
     });
-    
+     
+     $('#shift-params').hide();
      $("#fixed-position").change(function () {
         trial_num();
+	if ($(this).prop('checked')) {
+            // Show the shift input field when the checkbox is checked
+            $('#shift-params').show();
+        } else {
+            // Hide the shift input field when the checkbox is unchecked
+            $('#shift-params').hide();
+        }
      });
     
     $("#background-noise").change(function () {
@@ -263,7 +287,10 @@ $(document).ready(function () {
 
 /* Calculates new location based on distance */
 function updateLocation(){
-    distance = parseFloat($("#distance").val());
+    var dis = parseFloat($("#distance").val());
+    var dis_radians = dis * (Math.PI / 180);  // Convert degree to radians
+    distance = 150 * Math.tan(dis_radians);  // Using x = 150 * tan(radians)
+    //distance = parseFloat($("#distance").val());
     for (var i = 0; i < initialLoc.length; i++) {
         loc[i][0] = initialLoc[i][0] * distance;
         loc[i][1] = initialLoc[i][1] * distance;
@@ -420,9 +447,9 @@ function gauss_internal(pixels, kernel, ch, gray) {
 
 function trial_num(){
     if ($("#fixed-position").prop("checked")) {
-        num_trials = Math.floor((max_freq-frequency+step_freq)/step_freq) * loc.length;
+        num_trials = Math.ceil((max_freq-frequency+step_freq)/step_freq) * loc.length;
     }else if(!$("#fixed-position").prop("checked")){
-        num_trials = Math.floor((max_freq-frequency+step_freq)/step_freq);
+        num_trials = Math.ceil((max_freq-frequency+step_freq)/step_freq);
     }
 
 }
@@ -486,7 +513,7 @@ async function newTrial(response) {
     if ($("#fixed-position").prop("checked")){
         document.getElementById("bottom-text").setAttribute("text", "value", "\n\n" + (responses.length) + "/" + num_trials);
     }else{
-        document.getElementById("bottom-text").setAttribute("text", "value", "\n\n" + (responses.length + 1) + "/" + num_trials);
+        document.getElementById("bottom-text").setAttribute("text", "value", "\n\n" + (responses.length) + "/" + num_trials);
     }
 
     document.getElementById("bottom-text").setAttribute("position", "0 0 -49");
@@ -583,7 +610,7 @@ async function newTrial(response) {
     }
 
     // if experiment is static location, we update frequency with every trial
-    if (responses.length >= 1 && !$("#fixed-position").prop("checked")){
+    if (responses.length >= 2 && !$("#fixed-position").prop("checked")){
         frequency += step_freq;
     }
 
