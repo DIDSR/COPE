@@ -71,7 +71,7 @@
 					<li><strong>Max Frequency: </strong>Spatial frequency of the patch when the experiment ends. Max value is 6 cycles per degree to avoid results affected by HMD anti-aliasing settings. </b></li>
 					<li><strong>Step Frequency: </strong>Incremental spatial frequency in cycles per degree. Value must be between min and max frequency. </b></li>
 					<li><strong>9 positions: </strong>Checking this box allows the experiment to loop the frequency over 9 positions accross the FOV determined by the shift. </b></li>
-					<li><strong>Angular Separation: </strong>The angular distance between targets in degrees. </b></li>
+					<li><strong>Angular Separation: </strong>The shortest angular distance in degree between various positions of the target. </b></li>
 					<li><strong>Background Noise: </strong>Checking this box opens the noise menu options. </b></li>
 					<li><strong>Noise Sigma: </strong>Standard deviation of the noise amplitude in gray levels (0-255)</b></li>
 					<li><strong>Gaussian Sigma: </strong> Standard deviation of the Gaussian kernel that adds noise correlation. Ranges from 0 to 9 only.  </b></li>
@@ -91,8 +91,8 @@
 						<ul>
 							<li><strong>Arrow up (keyboard)/thumbstick up (HMD controller): </strong>Increase contrast of current target by one gray</li>
 							<li><strong>Arrow down (keyboard)/thumbstick down (HMD controller): </strong>Decrease contrast of current target by one gray</li>
-							<li><strong>a: </strong>Confirm threshold contrast that completes the current trial and move to the next one</li>
-							<li><strong>b: </strong>To maximize the current contrast to 1 for further adjustment (only to speed up contrast adjustment for poor visibility trials)</li>
+							<li><strong>a (keyboard and HMD controller): </strong>Confirm threshold contrast that completes the current trial and move to the next one</li>
+							<li><strong>b (keyboard and HMD controller: </strong>To maximize the current contrast to 1 for further adjustment (only to speed up contrast adjustment for poor visibility trials)</li>
 							<li><strong>esc: </strong>Exit immersive mode</li>
 						</ul>
 					</div>
@@ -105,11 +105,8 @@
 					<img src="./Images/results.png" alt="Results file" class="section-image" />
 					<div class="text-content">
 						<p>
-							The json file compiles the results of the experiment. The json file has the following format where the participant id 
-							is noted above and for each frequency, the threshold contrast, the frequency, the max frequency, the size standard deviation,
-							the position of the target, and the trial time needed to complete the trial are noted. Additionally, information on the locations 
-							of the target and background noise asscociated with each target are noted at top. All the data in each trial is stored in the responses
-							array of the file. 
+							The json file compiles the results of the experiment. The json file has the following format where the participant id and experimental configurations such as spatial frequencies, angular separation, and noise settings are listed in the header. 
+							For each trial, the user-determined threshold contrast, target spatial frequency, and position are recorded. All the date in each trial is stored in the responses array of the file. 
 						</p>
 					</div>
 				</div>
@@ -119,28 +116,26 @@
     <h2>Data Processing</h2>
     <div class="content-wrapper">
         <div class="text-content">
-	<a class="button" href="https://github.com/Khushibhansali/WebXR-contrast-sensitivity-tool/blob/main/tool/AnalyzeResults.ipynb" target="_blank">View Python Code to Plot JSON Results</a>
+	<a class="button" href="https://github.com/Khushibhansali/WebXR-contrast-sensitivity-tool/blob/main/tool/data_proc.py" target="_blank">Python code for data processing</a>
              <p>This code is designed to analyze and visualize contrast sensitivity data from multiple experiments. Its main functions are:</p>
 	    <ul>
 		<li><strong>Data Processing:</strong> It processes multiple JSON files containing experimental results on contrast sensitivity.</li>
 		<li><strong>Data Aggregation:</strong> The code combines data from all input files and calculates average contrast sensitivity for each spatial frequency and position combination.</li>
-		<li><strong>Visualization:</strong> It generates a set of plots (up to 9) showing the Contrast Sensitivity Function (CSF) for different positions in the visual field.</li>
+		<li><strong>Visualization:</strong> It generates a set of plots per target position showing the Contrast Sensitivity Response (CSR) for different positions in the visual field.</li>
 	    </ul>
 
 	<h3>To use this code effectively:</h3>
 	    <ol>
-	        <li><strong>Prepare Your Data:</strong> Ensure your JSON files follow the structure shown above.</li>
-	        <li><strong>Set the Folder Path:</strong> Replace the <code>folder_path</code> variable with the path to your folder containing the JSON files from your experiments.</li>
-	        <pre><code>folder_path = '/path/to/your/folder'</code></pre>
-	        <li><strong>Run the Script:</strong> Execute the script after setting the correct folder path.</li>
-	        <li><strong>Interpret the Results:</strong> The script will generate a figure with up to 9 subplots, each representing a different position in the visual field. These plots show how contrast sensitivity changes with spatial frequency for each position.</li>
+	        <li><strong>Prepare Your Data:</strong> Ensure your JSON files follow the structure shown above. Multiple JSON files from multiple subjects can be grouped for statistical analysis. Data from the same experimental group should be placed in the same Input Directory. </li>
+	        <li><strong>Run the Script:</strong> Execute the python script. Specify Input Directory for the data and Output Directory for the plots in pop-up windows. </li>
+	        <li><strong>Interpret the Results:</strong> The script will generate a figure (CSR with the mean and standard deviation of the grouped experiments) per measured target position in the visual field. These plots show how contrast sensitivity changes with spatial frequency for each position.</li>
 	    </ol>
 	
 		<br/><br/><br/>
 	    <h3>What the Plots Show</h3>
 	    <ul>
-	        <li><strong>X-axis:</strong> Spatial Frequency (cycles/degree) - derived from the "frequency" field in each response</li>
-	        <li><strong>Y-axis:</strong> Contrast Sensitivity Function (CSF) on a logarithmic scale - calculated as 1/contrast</li>
+	        <li><strong>X-axis:</strong> Spatial Frequency (cycles/degree)</li>
+	        <li><strong>Y-axis:</strong> Contrast Sensitivity Response (CSR) on a logarithmic scale</li>
 	        <li>Each plot represents a different position in the visual field, based on the "position" array in each response</li>
 	        <li>The line in each plot shows the average contrast sensitivity across all processed files for that position</li>
 	        <li>Error bars (if included) represent standard error or standard deviation across multiple trials or participants</li>
