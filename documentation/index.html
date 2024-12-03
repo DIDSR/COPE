@@ -33,7 +33,7 @@
 				<h2><a href="../tool/index.html"><img src="Images/link-icon.png" alt="Link Icon" width="15px" height="15px"/></a>
 					Introduction</h2> 
                 		<p> The MXR contrast perception tool measures the contrast sensitivity of human participants on a virtual or augmented reality (VR or AR) head-mounted display (HMD).  
-					Contrast sensitivity response (CSR), as the reciprocol of the threshold (minimum detectable) contrast of the human participant, is measured at various spatial frequencies. 
+					Contrast sensitivity response (CSR), as the reciprocal of the threshold (minimum detectable) contrast of the human participant, is measured at various spatial frequencies. 
 					This is achieved using a 2D sinusoidal pattern with predefined contrast and spatial frequency, known as a Gabor target. 
 					The Gabor target can be rendered at a single or multiple locations across the display field of view (FOV). 
 					The tool ensures that the sinusoidal contrast pattern remains circular (or perpendicular to the radial direction) relative to the target location. 
@@ -45,9 +45,9 @@
 				<h2> Experiment </h2>
 				<p> In the experiment, the location, size, spatial frequency range, and background noise of the Gabor target should be determined in the setup stage with detailed instructions below. 
 				During the perceptual experiments, the setup parameters cannot be changed. 
-				Each experiment contains multiple trails to determine the threshold contrast of the Gabor target at various spatial frequencies. In each trial, the target's contrast (starting as gray difference of 10, correponding to a contrast of about 0.04) can be incremented or decremented by adjusting the display gray level using a headset controller (thumbstick up or down) or paired Bluetooth keyboard (arrow up or down) until reaching the threshold contrast of each trial. 
-				Once the threshold contrast is obtained, press button "A" on the controller or bluetooth keyboard to complete the current trial. For very poor image quality conditions, e.g., threshold contrast close to 1, the button "B" can be used to maximize the contrast to 1 for further adjustment. 
-				At the end of the experiment, all trial data is saved as a JSON file. Statistical analysis of the results measured on mulitple human participants is applied to obtain the CSR of a group of participants. 			
+				Each experiment contains multiple trails to determine the threshold contrast of the Gabor target at various spatial frequencies. In each trial, the target's contrast (starting as gray difference of 10, corresponding to a contrast of about 0.04) can be incremented or decremented by adjusting the display gray level using a headset controller (thumbstick up or down) or paired Bluetooth keyboard (arrow up or down) until reaching the threshold contrast of each trial. 
+				Once the threshold contrast is obtained, press button "A" on the controller or Bluetooth keyboard to complete the current trial. For very poor image quality conditions, e.g., threshold contrast close to 1, the button "B" can be used to maximize the contrast to 1 for further adjustment. 
+				At the end of the experiment, all trial data is saved as a JSON file. Statistical analysis of the results measured on multiple human participants is applied to obtain the CSR of a group of participants. 			
 			</p>
 			</section>
 				
@@ -56,7 +56,7 @@
 				<p> Prior to the experiment, the testing conditions should be setup in the menu on the left hand side of the user interface using a compatible HMD controller or Bluetooth keyboard.
 					The experiment will run from the minimum to maximum frequency over a fixed position at the center of FOV or 9 different positions across FOV. The first trial (trial 0) is for illustration and practice, which will be excluded from data processing. 
 					The "min frequency", "max frequency" and "step frequency" are measured in cycles per degree. 
-					"Size" is the standard deviation of the gaussian bracket of the Garbor target measured in degrees that determines the target angular dimension. Note that the depth of the target is fixed at a long distance of 150 m. "Angular separation" is the shortest angular distance in degrees between neighboring targets over 9 positions. The background noise checkbox (optional) opens the noise menu which allows the user to adjust the noise amplitude in gray levels and standard deviation of the noise kernel.
+					"Size" is the standard deviation of the gaussian bracket of the Gabor target measured in degrees that determines the target angular dimension. Note that the depth of the target is fixed at a long distance of 150 m. "Angular separation" is the shortest angular distance in degrees between neighboring targets over 9 positions. The background noise checkbox (optional) opens the noise menu which allows the user to adjust the noise amplitude in gray levels and standard deviation of the noise kernel.
 					Below is detailed information on the units associated with each value in the menu.</p>
 			</section>
 
@@ -66,12 +66,12 @@
 				</h2>
 				
 				<ul>
-					<li><strong>Partcipant ID: </strong>A unique identifier of the participants and/or experimental configuration.</li>
+					<li><strong>Participant ID: </strong>A unique identifier of the participants and/or experimental configuration.</li>
 					<li><strong>Size: </strong> Angular dimension (std of the Gaussian bracket) of the Gabor target in degrees. Recommended to be less than 1 degree. </li>
 					<li><strong>Min Frequency: </strong>Spatial frequency of the patch when the experiment begins. Min value is 0.5 cycles per degree. </b></li>
 					<li><strong>Max Frequency: </strong>Spatial frequency of the patch when the experiment ends. Max value is 6 cycles per degree to avoid results affected by HMD anti-aliasing settings. </b></li>
 					<li><strong>Step Frequency: </strong>Incremental spatial frequency in cycles per degree. Value must be between min and max frequency. </b></li>
-					<li><strong>9 positions: </strong>Checking this box allows the experiment to loop the frequency over 9 positions accross the FOV determined by the shift. </b></li>
+					<li><strong>9 positions: </strong>Checking this box allows the experiment to loop the frequency over 9 positions across the FOV determined by the shift. </b></li>
 					<li><strong>Angular Separation: </strong>The shortest angular distance in degree between various positions of the target. </b></li>
 					<li><strong>Background Noise: </strong>Checking this box opens the noise menu options. </b></li>
 					<li><strong>Noise Sigma: </strong>Standard deviation of the noise amplitude in gray levels (0-255)</b></li>
