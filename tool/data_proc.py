@@ -131,7 +131,7 @@ def plot_results(df_combined):
         if not stats.empty and not stats['std'].isnull().all() and multiple_data_points:
             # Plot with error bars for standard deviation and standard error
             ax.errorbar(stats.index, stats['mean'], yerr=stats['std'], fmt='o-', label='Mean ± Std Dev')
-            ax.errorbar(stats.index, stats['mean'], yerr=stats['stderr'], fmt='o-', label='Mean ± Std Error', color='gray')
+            #ax.errorbar(stats.index, stats['mean'], yerr=stats['stderr'], fmt='o-', label='Mean ± Std Error', color='gray')
             #ax.errorbar(stats.index, stats['mean'], yerr=stats['stderr'], fmt='o-', label='Mean ± Std Error', linestyle='--', color='gray')
         else:
             # Plot without error bars if no variation in data
