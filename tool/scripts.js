@@ -302,12 +302,12 @@ function updateLocation(){
 /* Adjusts contrast*/
 function updateGabor(max, min){
     Imax += max;
-    Imin +=min;
+    Imin += min;
 
 
     // if contrast goes below limits
     if (Imax<Imin){
-     Imax = Imin;
+     Imax = 127; Imin = 127;
     }
 
     if (Imax-Imin>255){
@@ -325,7 +325,7 @@ function updateGabor(max, min){
 
 async function showNoise() {
     if ($("#background-noise").prop("checked"))
-        var noise = await createNoiseField(1000, 128, parseFloat($("#noise-sigma").val()), parseFloat($("#gaussian-sigma").val()));
+        var noise = await createNoiseField(1000, 127, parseFloat($("#noise-sigma").val()), parseFloat($("#gaussian-sigma").val()));
 
     return new Promise(resolve => {
         if ($("#background-noise").prop("checked")) {
