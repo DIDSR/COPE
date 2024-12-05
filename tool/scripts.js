@@ -302,9 +302,8 @@ function updateLocation(){
 /* Adjusts contrast*/
 function updateGabor(max, min){
     Imax += max;
-    if (Imax % 2 == 0){
-        Imin+=min;
-    }
+    Imin +=min;
+
 
     // if contrast goes below limits
     if (Imax<Imin){
