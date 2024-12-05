@@ -305,7 +305,6 @@ function updateGabor(max, min){
     if (Imax % 2 == 0){
         Imin+=min;
     }
-    contrast = (Imax - Imin)/ (Imax + Imin);
 
     // if contrast goes below limits
     if (Imax<Imin){
@@ -315,6 +314,9 @@ function updateGabor(max, min){
     if (Imax-Imin>255){
      Imax = 255; Imin = 0;
     }
+	
+    contrast = (Imax - Imin)/ (Imax + Imin);
+
     
     var gabor = createGabor(100, frequency, angle, std, 0.5, contrast);
     $("#gabor").html(gabor);
