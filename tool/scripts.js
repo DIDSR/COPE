@@ -156,7 +156,7 @@ $(document).ready(function () {
     });
 
     /* Registers keyboard input a->65 (increase contrast) and b->66 (decrease contrast) */
-    $(document).on('keydown keyup keypress', function (event) {
+    $(document).on('keydown', function (event) { // Only listen for keydown event
         let keycode = (event.keyCode ? event.keyCode : event.which);
         let isNumpad = event.location === 3; // 3 indicates the numpad
     
