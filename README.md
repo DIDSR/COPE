@@ -13,7 +13,7 @@ Documentation for this tool is available here: [Documentation](https://chuminzha
 
 ## Download the repository using the following options (optional):
 1. Click on the green code button and select Download zip. 
-2. Download the repository as a zip file or use the command line, navigate to destination folder (cd command), and type ```git clone https://github.com/Khushibhansali/WebXR-contrast-sensitivity-tool.git```
+2. Download the repository as a zip file or use the command line, navigate to destination folder (cd command), and type ```git clone https://github.com/chuminzhao/ContrastPerceptionMXR.git```
 
 Note: The lib folder is nessecary for Aframe dependencies.
 
