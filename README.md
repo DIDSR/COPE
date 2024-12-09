@@ -10,7 +10,7 @@ Documentation for this tool is available here: [Documentation](https://khushibha
 
 ## User interface
 
-![plot](Image/exp1.PNG)
+![plot](Image/exp1.png)
 
 ## Download the repository using the following options (optional):
 1. Click on the green code button and select Download zip. 
