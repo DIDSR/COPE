@@ -533,7 +533,7 @@ async function newTrial(response) {
             contrast: contrast,
             frequency: Math.round(frequency*26*100)/100,
             max_freq: max_freq*26,
-            position_xyz_meter: position,
+            position: position,
             trialTime: stimulusOff - stimulusOn,
       });
     }
