@@ -114,7 +114,7 @@ def plot_results(df_combined):
     else:
         rows = int(np.ceil(np.sqrt(num_positions)))
         cols = int(np.ceil(num_positions / rows))
-        fig, axes = plt.subplots(rows, cols, figsize=(5*cols, 4*rows))
+        fig, axes = plt.subplots(rows, cols, figsize=(6*cols, 4*rows))
         axes = axes.flatten()
 
     for i, position in enumerate(positions):
