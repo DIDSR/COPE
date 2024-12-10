@@ -70,8 +70,8 @@
 				<p> Following the procedures below to perform the perceptual experiment:</p>
 			    <ol>
 	        		<li>After the experimental setup, click the button at the bottom right corner to enter immersive mode on the tested HMD. The test must be conducted in the immersive mode. </li>
-	        		<li>Each experiment contains multiple trails to determine the threshold contrast of the Gabor target at various locations and spatial frequencies. The experiment will run from the minimum to maximum frequency over a fixed position at the center of FOV or 9 different positions across FOV. The first trial (trial 0) is for illustration and practice, which will be excluded from data processing.</li>
-	        		<li>In each trial, the target's contrast (starting as gray difference of 10, corresponding to a contrast of about 0.04) can be incremented or decremented by adjusting the display gray level using a HMD controller (thumbstick up or down) or paired Bluetooth keyboard (arrow up or down) until reaching the threshold contrast of each trial. See section below for details of HMD controller and Bluetooth keyboard control.</li>
+	        		<li>Each experiment contains multiple trials to determine the threshold contrast of the Gabor target at various locations and spatial frequencies. The experiment will run from the minimum to maximum frequency over a fixed position at the center of FOV or 9 different positions across FOV. The first trial (trial 0) is for illustration and practice, which will be excluded from data processing.</li>
+	        		<li>In each trial, the target's contrast (starting as gray difference of 10, corresponding to a contrast of about 0.04) can be incremented or decremented by adjusting the display gray level using an HMD controller (thumbstick up or down) or paired Bluetooth keyboard (arrow up or down) until reaching the threshold contrast of each trial. See section below for details of HMD controller and Bluetooth keyboard control.</li>
 	   		 	<li>Once the threshold contrast is obtained, press button "A" on the controller or Bluetooth keyboard to complete the current trial. For very poor image quality conditions, e.g., threshold contrast close to 1, the button "B" can be used to maximize the contrast to 1 for further adjustment.</li>
 	        		<li>At the end of the experiment, all responses from the participant (i.e., measured threshold contrast) are saved as an output JSON file. </li>
 			    </ol>
@@ -117,7 +117,7 @@
 
 	<h3>To use this code:</h3>
 	    <ol>
-	        <li><strong>Prepare Your Data:</strong> Ensure your JSON files follow the structure shown above. Multiple JSON files from multiple subjects can be grouped for statistical analysis. Data from the same experimental group should be placed in the same Input Directory. </li>
+	        <li><strong>Prepare the Data Files:</strong> Ensure your JSON files follow the structure shown above. Multiple JSON files from multiple subjects can be grouped for statistical analysis. Data from the same experimental group should be placed in the same Input Directory. </li>
 	        <li><strong>Run the Script:</strong> Execute the python script. Specify Input Directory for the data and Output Directory for the plots in pop-up windows. </li>
 	        <li><strong>Interpret the Results:</strong> The script will generate a figure (CSR with the mean and standard deviation of the grouped experiments) per measured target position in the visual field. These plots show how contrast sensitivity changes with spatial frequency for each position.</li>
 	    </ol>
@@ -126,7 +126,7 @@
 	    <h3>What the Plots Show</h3>
 	    <ul>
 	        <li><strong>X-axis:</strong> Spatial Frequency (cycles/degree)</li>
-	        <li><strong>Y-axis:</strong> Contrast Sensitivity Response (CSR) on a logarithmic scale</li>
+	        <li><strong>Y-axis:</strong> CSR on a logarithmic scale</li>
 	        <li>Each plot represents a different position in the visual field, based on the "position" array (unit in meters in the x, y, z direction) in each response</li>
 	        <li>The line in each plot shows the average contrast sensitivity across all processed files for that position</li>
 	        <li>Error bars (if included) represent standard error or standard deviation across multiple participants</li>
