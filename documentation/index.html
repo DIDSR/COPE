@@ -70,7 +70,7 @@
 				<p> Following the procedures below to perform the perceptual experiment:</p>
 			    <ol>
 	        		<li>After the experimental setup, click the button at the bottom right corner to enter immersive mode on the tested HMD. The test must be conducted in the immersive mode. </li>
-	        		<li>Each experiment contains multiple trials to determine the threshold contrast of the Gabor target at various locations and spatial frequencies. The experiment will run from the minimum to maximum frequency over a fixed position at the center of FOV or 9 different positions across FOV. The first trial (trial 0) is for illustration and practice, which will be excluded from data processing.</li>
+	        		<li>Each experiment contains multiple trials to determine the threshold contrast of the Gabor target at various locations and spatial frequencies. The experiment will run from the minimum to maximum frequency over a fixed position at the center of FOV or 9 different positions across FOV. The first trial (trial 0) is for illustration and HMD alignment, which will be excluded from data processing. If needed, adjust the HMD position such that the target appears at the center of the HMD FOV</li>
 	        		<li>In each trial, the target's contrast (starting as gray difference of 10, corresponding to a contrast of about 0.04) can be incremented or decremented by adjusting the display gray level using an HMD controller (thumbstick up or down) or paired Bluetooth keyboard (arrow up or down) until reaching the threshold contrast of each trial. See section below for details of HMD controller and Bluetooth keyboard control.</li>
 	   		 	<li>Once the threshold contrast is obtained, press button "A" on the controller or Bluetooth keyboard to complete the current trial. For very poor image quality conditions, e.g., threshold contrast close to 1, the button "B" can be used to maximize the contrast to 1 for further adjustment.</li>
 	        		<li>At the end of the experiment, all responses from the participant (i.e., measured threshold contrast) are saved as an output JSON file. </li>
@@ -85,8 +85,8 @@
 						<ul>
 							<li><strong>Arrow up (keyboard)/thumbstick up (HMD controller): </strong>Increase contrast of current target by one gray</li>
 							<li><strong>Arrow down (keyboard)/thumbstick down (HMD controller): </strong>Decrease contrast of current target by one gray</li>
-							<li><strong>a (keyboard and HMD controller): </strong>Confirm threshold contrast that completes the current trial and move to the next one</li>
-							<li><strong>b (keyboard and HMD controller): </strong>To maximize the current contrast to 1 for further adjustment (only to speed up contrast adjustment for poor visibility trials)</li>
+							<li><strong>A (keyboard and HMD controller): </strong>Confirm threshold contrast that completes the current trial and move to the next one</li>
+							<li><strong>B (keyboard and HMD controller): </strong>To maximize the current contrast to 1 for further adjustment (only to speed up contrast adjustment for poor visibility trials)</li>
 							<li><strong>esc: </strong>Exit immersive mode</li>
 						</ul>
 					</div>
@@ -139,7 +139,7 @@
 
 			<section id="CompatibleHMDs" class="image-text-section">
 				<h2>Compatible HMDs</h2>
-				<p> This tool has been validated for compatibility with the following HMDs: Meta Quest 2, Quest 3, Quest Pro, and Magic Leap 2. Compatibility of other HMDs should be checked prior to use of this tool. </p>
+				<p> This tool has been validated for compatibility with the following HMDs: Meta Quest 2, Quest 3, and Magic Leap 2. Compatibility of other HMDs should be checked prior to use of this tool. </p>
 			</section>
 
 		
