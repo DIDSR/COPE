@@ -1,4 +1,4 @@
-# Contrast Perception Evaluation on Head-Mounted Displays
+# COPE: Contrast Perception Evaluation on Head-Mounted Displays
 We develop a method for the evaluation of contrast perception on medical extended reality (MXR) devices using virtual (VR) or augmented reality (AR) head-mounted displays (HMDs). Image quality evaluation on VR and AR HMDs is primarily based on optical bench measurement on a single eyepiece. However, this approach generally requires complicated bench setup that emulates the human eye geometry. In addition, binocular image quality discrepancy on HMDs may affect the perceptual performance that is missing from monocular bench measurement. This tool describes a method and software platform to characterizes the image quality on VR and AR HMDs using human perceptual experiments. Specifically, the contrast sensitivity response (CSR) of human participants is measured at multiple positions across the HMD field of view (FOV). 
 
 This tool provides a software test platform using WebXR Device API to perform human perceptual experiments on VR or AR HMDs in an immersive environment, which can be loaded on an HMD web browser that supports WebXR. 
