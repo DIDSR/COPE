@@ -3,9 +3,9 @@ We develop a method for the evaluation of contrast perception on medical extende
 
 This tool provides a software test platform using WebXR Device API to perform human perceptual experiments on VR or AR HMDs in an immersive environment, which can be loaded on an HMD web browser that supports WebXR. 
 
-The WebXR-based platform to perform perceptual experiments is available here: [COPE](https://chuminzhao.github.io/ContrastPerceptionMXR/)
+The WebXR-based platform to perform perceptual experiments is available here: [COPE](https://chuminzhao.github.io/COPE/)
 
-Documentation for this tool is available here: [Documentation](https://chuminzhao.github.io/ContrastPerceptionMXR/documentation/)
+Documentation for this tool is available here: [Documentation](https://chuminzhao.github.io/COPE/documentation/)
 
 ## User interface
 
