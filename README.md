@@ -3,9 +3,9 @@ We develop a method for the evaluation of contrast perception on medical extende
 
 This tool provides a software test platform using WebXR Device API to perform human perceptual experiments on VR or AR HMDs in an immersive environment, which can be loaded on an HMD web browser that supports WebXR. 
 
-The WebXR-based platform to perform perceptual experiments is available here: [COPE](https://chuminzhao.github.io/COPE/)
+The WebXR-based platform to perform perceptual experiments is available here: [COPE](https://DIDSR.github.io/COPE/)
 
-Documentation for this tool is available here: [Documentation](https://chuminzhao.github.io/COPE/documentation/)
+Documentation for this tool is available here: [Documentation](https://DIDSR.github.io/COPE/documentation/)
 
 ## User interface
 
@@ -13,7 +13,7 @@ Documentation for this tool is available here: [Documentation](https://chuminzha
 
 ## Download the repository using the following options (optional):
 1. Click on the green code button and select Download zip. 
-2. Download the repository as a zip file or use the command line, navigate to destination folder (cd command), and type ```git clone https://github.com/chuminzhao/ContrastPerceptionMXR.git```
+2. Download the repository as a zip file or use the command line, navigate to destination folder (cd command), and type ```git clone https://github.com/DIDSR/COPE.git```
 
 Note: The lib folder is nessecary for Aframe dependencies.
 
