@@ -21,3 +21,13 @@ Note: The lib folder is nessecary for Aframe dependencies.
 1. This tool requires to access a WebXR-compatible browser on the evaluated HMD. Compatibility of the HMD needs to be validated before the experiment. 
 2. The rendered image resolution is dependent on the WebXR rendering engine. Spatial frequencies beyond 6 cycles per degree may be subject to aliasing effect and therefore performing contrast sensitivity experiments beyond spatial frequency of 6 cycles per degree is not recommended. 
 
+## Tool Reference 
+RST Reference Number: RST26MX01.01
+Date of Publication: 05/04/2026
+Recommended Citation: U.S. Food and Drug Administration. (2026). COPE: Contrast Perception Evaluation on Head-Mounted Displays (RST26MX01.01). https://cdrh-rst.fda.gov/cope-contrast-perception-evaluation-head-mounted-displays
+
+## Disclaimer
+About the Catalog of Regulatory Science Tools
+The enclosed tool is part of the Catalog of Regulatory Science Tools, which provides a peer-reviewed resource for stakeholders to use where standards and qualified Medical Device Development Tools (MDDTs) do not yet exist. These tools do not replace FDA-recognized standards or MDDTs. This catalog collates a variety of regulatory science tools that the FDA's Center for Devices and Radiological Health's (CDRH) Office of Science and Engineering Labs (OSEL) developed. These tools use the most innovative science to support medical device development and patient access to safe and effective medical devices. If you are considering using a tool from this catalog in your marketing submissions, note that these tools have not been qualified as Medical Device Development Tools and the FDA has not evaluated the suitability of these tools within any specific context of use. You may request feedback or meetings for medical device submissions as part of the Q-Submission Program.
+For more information about the Catalog of Regulatory Science Tools, email RST_CDRH@fda.hhs.gov.
+
