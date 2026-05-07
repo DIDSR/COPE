@@ -23,7 +23,9 @@ Note: The lib folder is nessecary for Aframe dependencies.
 
 ## Tool Reference 
 RST Reference Number: RST26MX01.01
+
 Date of Publication: 05/04/2026
+
 Recommended Citation: U.S. Food and Drug Administration. (2026). COPE: Contrast Perception Evaluation on Head-Mounted Displays (RST26MX01.01). https://cdrh-rst.fda.gov/cope-contrast-perception-evaluation-head-mounted-displays
 
 ## Disclaimer
